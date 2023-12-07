@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from captum.attr._core.dataloader_attr import DataLoaderAttribution  # noqa
 from captum.attr._core.deep_lift import DeepLift, DeepLiftShap  # noqa
 from captum.attr._core.feature_ablation import FeatureAblation  # noqa
 from captum.attr._core.feature_permutation import FeaturePermutation  # noqa
@@ -29,6 +30,11 @@ from captum.attr._core.layer.layer_integrated_gradients import (  # noqa
 )
 from captum.attr._core.layer.layer_lrp import LayerLRP  # noqa
 from captum.attr._core.lime import Lime, LimeBase  # noqa
+from captum.attr._core.llm_attr import (  # noqa
+    LLMAttribution,
+    LLMAttributionResult,
+    LLMGradientAttribution,
+)
 from captum.attr._core.lrp import LRP  # noqa
 from captum.attr._core.neuron.neuron_conductance import NeuronConductance  # noqa
 from captum.attr._core.neuron.neuron_deep_lift import (  # noqa
@@ -65,7 +71,13 @@ from captum.attr._utils.attribution import (  # noqa  # noqa  # noqa  # noqa  # 
     NeuronAttribution,
     PerturbationAttribution,
 )
+from captum.attr._utils.baselines import ProductBaselines  # noqa
 from captum.attr._utils.class_summarizer import ClassSummarizer
+from captum.attr._utils.interpretable_input import (  # noqa
+    InterpretableInput,
+    TextTemplateInput,
+    TextTokenInput,
+)
 from captum.attr._utils.stat import (
     CommonStats,
     Count,
@@ -86,6 +98,7 @@ __all__ = [
     "NeuronAttribution",
     "LayerAttribution",
     "IntegratedGradients",
+    "DataLoaderAttribution",
     "DeepLift",
     "DeepLiftShap",
     "InputXGradient",
@@ -106,7 +119,11 @@ __all__ = [
     "LayerGradientXActivation",
     "LayerActivation",
     "LayerFeatureAblation",
+    "LLMAttribution",
+    "LLMAttributionResult",
+    "LLMGradientAttribution",
     "InternalInfluence",
+    "InterpretableInput",
     "LayerGradCam",
     "LayerDeepLift",
     "LayerDeepLiftShap",
@@ -123,8 +140,11 @@ __all__ = [
     "NeuronDeconvolution",
     "NeuronGuidedBackprop",
     "NoiseTunnel",
+    "ProductBaselines",
     "GradientShap",
     "InterpretableEmbeddingBase",
+    "TextTemplateInput",
+    "TextTokenInput",
     "TokenReferenceBase",
     "visualization",
     "configure_interpretable_embedding_layer",
